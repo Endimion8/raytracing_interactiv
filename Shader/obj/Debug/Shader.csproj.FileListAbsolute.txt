@@ -98,3 +98,6 @@ D:\CG.Labs\Рабочий рейтрейсинг. Интерактивный\Sha
 D:\CG.Labs\Рабочий рейтрейсинг. Интерактивный\Shader\Shader\obj\Debug\Shader.csprojResolveAssemblyReference.cache
 D:\CG.Labs\Рабочий рейтрейсинг. Интерактивный\Shader\Shader\obj\Debug\Shader.Properties.Resources.resources
 D:\CG.Labs\Рабочий рейтрейсинг. Интерактивный\Shader\Shader\obj\Debug\Shader.csproj.GenerateResource.Cache
+D:\GitRepositories\raytracing_interactiv\Shader\bin\Debug\Shader.exe.config
+D:\GitRepositories\raytracing_interactiv\Shader\obj\Debug\Shader.exe
+D:\GitRepositories\raytracing_interactiv\Shader\obj\Debug\Shader.pdb
