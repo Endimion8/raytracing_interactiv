@@ -1,0 +1,3 @@
+F:\Загрузки\Shader\Shader\bin\Release\Shader.exe.config
+F:\Загрузки\Shader\Shader\obj\Release\Shader.Properties.Resources.resources
+F:\Загрузки\Shader\Shader\obj\Release\Shader.csproj.GenerateResource.Cache
