@@ -12,8 +12,8 @@ const int REFRACTION = 3;
 const int DIFFUSE_REFLECTION = 1;	//	пересечение с диффузным объектом
 const int MIRROR_REFLECTION = 2;	// пересечение с зеркальным объектом
 
+const int lightNum= 1;
 
-vec3 v = vec3(2, 1, 2);
 vec3 v = vec3(2, 1, 2);
 
 /*** DATA STRUCTURES ***/
@@ -311,13 +311,21 @@ bool Raytrace ( SRay ray, SSphere spheres[3], STriangle triangles[12], SMaterial
 	return result;
 }
 
-void initializeDefaultLightMaterials(out SLight light, out SMaterial materials[6])
+void initializeDefaultLightMaterials(out SLight light[lightNum], out SMaterial materials[6])
 {
 	//** LIGHT **//
-	light.Position = lpos; //vec3(0.0, 2.0, -4.0);
+//    for (int i = 0; i< 10; i++)
+//        for (int j = 0; j< 10; j++)
+//        {
+//	       light[i*10 + j].Position = lpos + vec3(EPSILON*j, EPSILON*i, 0.0 ); //vec3(0.0, 2.0, -4.0);
+//         }
+       
+       for(int i=0; i<lightNum; i++)
+       light[i].Position = vec3(0.0+sin(i)*0.3, 2.0+cos(i)*0.3, -4.0);
+
 	//light.Position = vec3(0.0, 4.0, 0.0);
 	/** MATERIALS **/
-	vec4 lightCoefs = vec4(0.4,0.9,0.0,512.0);
+	vec4 lightCoefs = vec4(0.4 / lightNum,0.9 / lightNum,0.0,512.0);
 
 	materials[0].Color = vec3(0.0, 1.0, 0.0);
 	materials[0].LightCoeffs = vec4(lightCoefs);
@@ -371,6 +379,7 @@ vec3 Phong ( SCamera uCamera, SIntersection intersect, SLight currLight, float s
 
 float Shadow(SLight currLight, SIntersection intersect, SSphere spheres[3], STriangle triangles[12], SMaterial materials[6])
 {
+
 	float shadowing = 1.0;
 	vec3 direction = normalize(currLight.Position - intersect.Point);
 	float distanceLight = distance(currLight.Position, intersect.Point);
@@ -380,7 +389,7 @@ float Shadow(SLight currLight, SIntersection intersect, SSphere spheres[3], STri
 	if(Raytrace(shadowRay, spheres, triangles, materials, 0.0, distanceLight, shadowIntersect))
 	{
 		shadowing = 0.0;
-	}
+    }
 	return shadowing;
 }
 
@@ -412,7 +421,7 @@ void main ( void )
 
 	STriangle triangles[12];
 	SSphere spheres[3];
-	SLight light;
+	SLight light[lightNum];
 	SMaterial materials[6];
 	vec3 resultColor = vec3(0,0,0);
 
@@ -438,8 +447,12 @@ void main ( void )
 			{
 			case DIFFUSE_REFLECTION:
 			{
-				float shadowing = Shadow(light, intersect, spheres, triangles, materials); //в методичке неправильно
-				resultColor += trRay.contribution * Phong (uCamera,intersect, light, shadowing ); 
+            float shadowing = 0;
+             for (int i = 0; i< lightNum; i++)
+                {
+				shadowing = Shadow(light[i], intersect, spheres, triangles, materials); //в методичке неправильно
+				resultColor += trRay.contribution* 1 * Phong (uCamera,intersect, light[i], shadowing ); 
+                }
 				break;
 			}
 			case MIRROR_REFLECTION:
@@ -448,8 +461,12 @@ void main ( void )
 				{
 					float contribution = trRay.contribution * (1 - intersect.ReflectionCoef);
 					//contribution *= intersect.ReflectionCoef;
-					float shadowing = Shadow(light, intersect, spheres, triangles, materials);
-					resultColor += trRay.contribution * 0.5 * Phong (uCamera,intersect, light, shadowing );   // уменьшил интенсивность отраженного света вполовину
+                    float shadowing = 0;
+                    for (int i = 0; i< lightNum; i++)
+                    {
+					shadowing = Shadow(light[i], intersect, spheres, triangles, materials);
+					resultColor += trRay.contribution * 1 * Phong (uCamera,intersect, light[i], shadowing );   // уменьшил интенсивность отраженного света вполовину
+                    }
 				}
 				vec3 reflectDirection = reflect(ray.Direction, intersect.Normal);
 				// создать луч отражения
