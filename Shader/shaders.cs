@@ -64,7 +64,7 @@ namespace Shader
             loadShader("..\\..\\raytracing.fs", ShaderType.FragmentShader, BasicProgramID, out BasicFragmentShader);
             GL.LinkProgram(BasicProgramID);//Компановка программы
 
-            // Проверить успех компановки
+            // Проверить успех компоновки
             int status = 0;
             GL.GetProgram(BasicProgramID, GetProgramParameterName.LinkStatus, out status);
             Console.WriteLine(GL.GetProgramInfoLog(BasicProgramID));

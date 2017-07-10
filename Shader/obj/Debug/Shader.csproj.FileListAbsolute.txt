@@ -101,3 +101,13 @@ D:\CG.Labs\Рабочий рейтрейсинг. Интерактивный\Sha
 D:\GitRepositories\raytracing_interactiv\Shader\bin\Debug\Shader.exe.config
 D:\GitRepositories\raytracing_interactiv\Shader\obj\Debug\Shader.exe
 D:\GitRepositories\raytracing_interactiv\Shader\obj\Debug\Shader.pdb
+D:\GitRepositories\raytracing_interactiv\Shader\bin\Debug\Shader.exe
+D:\GitRepositories\raytracing_interactiv\Shader\bin\Debug\Shader.pdb
+D:\GitRepositories\raytracing_interactiv\Shader\bin\Debug\OpenTK.dll
+D:\GitRepositories\raytracing_interactiv\Shader\bin\Debug\OpenTK.GLControl.dll
+D:\GitRepositories\raytracing_interactiv\Shader\bin\Debug\OpenTK.pdb
+D:\GitRepositories\raytracing_interactiv\Shader\bin\Debug\OpenTK.xml
+D:\GitRepositories\raytracing_interactiv\Shader\bin\Debug\OpenTK.GLControl.xml
+D:\GitRepositories\raytracing_interactiv\Shader\obj\Debug\Shader.csprojResolveAssemblyReference.cache
+D:\GitRepositories\raytracing_interactiv\Shader\obj\Debug\Shader.Properties.Resources.resources
+D:\GitRepositories\raytracing_interactiv\Shader\obj\Debug\Shader.csproj.GenerateResource.Cache

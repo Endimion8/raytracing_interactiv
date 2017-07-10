@@ -15,12 +15,17 @@ namespace Shader
         [STAThread]
         static void Main()
         {
+            Class1 cl = new Class1();
+            cl.sayWord();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             using (shaders RayTracing = new shaders(800,600))
             {
 
                 RayTracing.Run();  //Запускает форму
+                
+
                 
             }
         }
