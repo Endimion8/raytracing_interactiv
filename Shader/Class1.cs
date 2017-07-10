@@ -8,6 +8,10 @@ namespace Shader
 {
     class Class1
     {
-
+        private string word = "Hello";
+        public void sayWord()
+        {
+            Console.WriteLine(word);
+        }
     }
 }
