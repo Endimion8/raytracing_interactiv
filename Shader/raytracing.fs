@@ -15,10 +15,9 @@ const int MIRROR_REFLECTION = 2;	// пересечение с зеркальны
 const int lightNum= 1;
 
 vec3 v = vec3(2, 1, 2);
-<<<<<<< HEAD
-=======
+
 vec3 vvv = vec3(2, 1, 2);
->>>>>>> master
+
 
 /*** DATA STRUCTURES ***/
 struct SCamera
